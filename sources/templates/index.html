@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>eKYC for identify your customers</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="{{url_for('static', path='./css/index.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- partial:index.partial.html -->
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
+                <a class="navbar-brand navbar-logo" href="/"> EKYC - Electronic Know Your Customer</a>
+                <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                        <li class="nav-item active" >
+                            <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);"><i class="fas fa-paper-plane"></i>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    
+        <!-- timeline part -->
+        <div id="timeline-wrap">
+            <div id="timeline"></div>
+            
+            <!-- This is the individual marker-->
+            <div class="marker mfirst one active">
+                <div class="step-number">1</div>
+                <div class="step-label">ID card verification</div>
+            </div>
+            <!-- / marker -->
+          
+            <!-- This is the individual marker-->
+            <div class="marker m2 two">
+                <div class="step-number">2</div>
+                <div class="step-label">Face verification</div>
+            </div>
+            <!-- / marker -->
+                  
+            <!-- This is the individual marker-->
+            <div class="marker m3 three">
+                <div class="step-number">3</div>
+                <div class="step-label">Liveness detection</div>
+            </div>
+            <!-- / marker -->
+          
+            
+            <!-- This is the individual marker-->
+            <div class="marker mlast four">
+                <div class="step-number">4</div>
+                <div class="step-label">Complete</div>
+            </div>
+            <!-- / marker -->
+        </div>
+
+        <!-- content part -->
+        <div class="content">
+            <h1 class="title">
+                ID card verification
+            </h1>
+            <div class="upload-image">
+                <div class="upload-and-guidline">
+                    <label for="input-file" id="drop-area">
+                        <input type="file" accept="image/*" id="input-file" hidden>
+                        <div id="img-view">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <p>Drag and drop or click here <br> to upload ID card image</p>
+                            <span>Upload any images from destop</span>
+                        </div>
+                    </label>
+                    <div class="guidelines">
+                        <h4>Please ensure the following:</h4>
+                        <ul class="guideline-list">
+                            <li><i class="fa-regular fa-circle-check check-icon"></i> The document is not blurry, dark, or overexposed</li>
+                            <li><i class="fa-regular fa-circle-check check-icon"></i> The document does not does not lose the 4 corners of the card</li></li>
+                            <li><i class="fa-regular fa-circle-check check-icon"></i> The document is original and still valid</li>
+                        </ul>                
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">Extrac information</button>
+            </div>
+        
+            <div class="person">    
+                <h1 class="title">Check details</h1>    
+                <p>Please make sure the information is captured correctly, please check carefully before sending</p>    
+                <form action="#">
+                    <div class="person__img"></div>
+                    <div class="fields person__info">
+                            <div class="input-field info__id">
+                                <label>No</label>
+                                <input type="text" placeholder="Enter your ID" required>
+                            </div>
+
+                            <div class="input-field info__name">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="input-field info__date">
+                                <label>Date of Birth</label>
+                                <input type="date" placeholder="Enter birth date">
+                            </div>
+                            
+                            <div class="input-field info__sex">
+                                <label>Sex</label>
+                                <select required>
+                                    <option disabled selected>Select gender</option>
+                                    <option value="Nam">Male</option>
+                                    <option value="Nữ">Female</option>
+                                    <option value="Khác">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="input-field info__nation">
+                                <label>Nationality</label>
+                                <input type="text" placeholder="Enter your Nationality" required>
+                            </div>
+
+                            <div class="input-field info__hometown">
+                                <label>Place of origin</label>
+                                <input type="text" placeholder="Enter your Place of origin" required>
+                            </div>
+
+                            <div class="input-field info__address">
+                                <label>Place of residence</label>
+                                <input type="text" placeholder="Enter your Place of residence" required>
+                            </div>
+
+                            <div class="input-field info__doe">
+                                <label>Date of Expiry </label>
+                                <input type="date" placeholder="Enter expiry date" required>
+                            </div>
+                    </div>      
+                </form>
+            </div>
+    
+            <button type="button" class="btn btn-primary active" id="nextButton" style="display: none;" >Next</button>
+          
+        </div>
+
+        <!-- footer part -->
+        <div class="footer">&copy;
+            <span>Developed by <a href="https://github.com/VuKlih">Vu Hoang Khanh Linh</a></span>
+        </div>
+    </div>
+
+    <!-- partial -->
+    <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js'></script>
+    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', path='js/index.js') }}"></script>
+
+</body>
+</html>

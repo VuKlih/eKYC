@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eKYC for identify your customers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="{{url_for('static', path='./css/verification.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- navigation part  -->
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
+            <a class="navbar-brand navbar-logo" href="/">EKYC - Electronic Know Your Customer
+            </a>
+            <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                    <li class="nav-item active" >
+                        <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="fas fa-paper-plane"></i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- timeline part -->
+        <div id="timeline-wrap">
+            <div id="timeline"></div>
+            
+            <!-- This is the individual marker-->
+            <div class="marker mfirst one active">
+                <div class="step-number"><i class="fa-solid fa-check"></i></div>
+                <div class="step-label">ID card verification</div>
+            </div>
+            <!-- / marker -->
+            
+            <!-- This is the individual marker-->
+            <div class="marker m2 two">
+                <div class="step-number">2</div>
+                <div class="step-label">Face verification</div>
+            </div>
+            <!-- / marker -->
+                    
+            <!-- This is the individual marker-->
+            <div class="marker m3 three">
+                <div class="step-number">3</div>
+                <div class="step-label">Liveness detection</div>
+            </div>
+            <!-- / marker -->
+            
+            
+            <!-- This is the individual marker-->
+            <div class="marker mlast four">
+                <div class="step-number">4</div>
+                <div class="step-label">Complete</div>
+            </div>
+            <!-- / marker -->
+        </div>
+        
+        <!-- content part -->
+        <div class="content">
+            <h1 class="title">
+                Face verification
+            </h1>
+            <p>Press the start button to start the face verification process.</p>
+
+            <div class="camera">
+                <!-- <div class="square id-card"></div> -->
+                <div class="square_camera">
+                    <video id="video" autoplay></video>            
+                </div>
+                
+                <div class="guidelines">
+                    <h4>Please ensure the following:</h4>
+                    <ul class="guideline-list">
+                        <li><i class="fa-regular fa-circle-check check-icon"></i>Make sure you are in a location with good lighting and minimal shadows.</li>
+                        <li><i class="fa-regular fa-circle-check check-icon"></i>Keep your face centered and maintain a comfortable distance from the camera. Avoid excessive tilting or turning of your head.</li>
+                        <li><i class="fa-regular fa-circle-check check-icon"></i>Remove any accessories, such as hats or sunglasses</li>
+                        <li><i class="fa-regular fa-circle-check check-icon"></i>Hold your device steady and keep your head still for a successful scan.</li>
+                    </ul>                
+                </div>
+
+            </div>
+
+            <button type="button" id="startCamera"  class="btn btn-primary">Start</button>
+            <div class="previous-next-btns">
+                <button type="button"  class="btn btn-primary" onclick="window.location.href='/'">Previous</button>
+                <button type="button"  class="btn btn-primary " id="nextButton"  onclick="window.location.href='/liveness_detection'" style="display: none;">Next</button>
+            </div>
+            <canvas id="canvas" style="display:none;"></canvas>
+        </div>
+
+        <!-- footer part -->
+        <div class="footer">&copy;
+            <span>Developed by <a href="https://github.com/VuKlih">Vu Hoang Khanh Linh</a></span>
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+    <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js'></script>
+    <script src="{{ url_for('static', path='js/verification.js') }}"></script>
+
+</body>
+
+</html>

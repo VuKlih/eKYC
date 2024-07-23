@@ -1,0 +1,10 @@
+aiosqlite
+databases
+fastapi
+pre-commit
+pylibsrtp
+python-multipart
+uvicorn
+vietocr
+yolov5
+Jinja2
