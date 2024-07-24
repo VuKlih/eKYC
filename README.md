@@ -7,7 +7,7 @@ An web application helps us to digitally extract information and verify the iden
 ## eKYC flow 
 This README provides an overview of the eKYC (Electronic Know Your Customer) flow, which comprises three main components: Upload Document (ID Card), Face Recognition (Verification), and Liveness Detection.
 
-![](sources/static/assets/eKYC-process.png/flow.jpg)
+![](sources/static/assets/eKYC-process.png)
 
 ## **Installation**
 All requirement libraries are listed in requirements.txt. You can install it by using:
